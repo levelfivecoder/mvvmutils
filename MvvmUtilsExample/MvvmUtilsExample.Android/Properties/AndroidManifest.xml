@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.MvvmUtilsExample">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="2" android:versionName="1.1" package="com.levelfivecoder.MvvmUtilsExample">
 	<uses-sdk android:minSdkVersion="15" />
-	<application android:label="MvvmUtilsExample.Android"></application>
+	<application android:label="MvvmUtilsExample.Android" android:icon="@drawable/icon"></application>
 </manifest>

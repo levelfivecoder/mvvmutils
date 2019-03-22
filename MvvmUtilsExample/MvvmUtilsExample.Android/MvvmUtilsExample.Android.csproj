@@ -27,6 +27,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
+<AndroidKeyStore>True</AndroidKeyStore>
+<AndroidSigningKeyStore>MvvmUtilsKeystore</AndroidSigningKeyStore>
+<AndroidSigningStorePass>Illus10n</AndroidSigningStorePass>
+<AndroidSigningKeyAlias>MvvmUtils</AndroidSigningKeyAlias>
+<AndroidSigningKeyPass>Illus10n</AndroidSigningKeyPass>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
