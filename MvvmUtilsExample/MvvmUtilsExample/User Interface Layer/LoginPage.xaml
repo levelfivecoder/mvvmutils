@@ -4,6 +4,7 @@
              x:Class="MvvmUtilsExample.User_Interface_Layer.LoginPage">
     <ContentPage.Content>
         <Grid>
+            <Label Text="FInal Release Build for MVVM Utils Sample App" VerticalOptions="Start" HorizontalOptions="Center" Margin="24" />
              <Button Text="Login"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" Command="{Binding LoginCommand}" />
