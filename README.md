@@ -2,3 +2,6 @@
 A utility library from mvvm
 
 added pull requests and build pipeline
+
+open for contribution
+

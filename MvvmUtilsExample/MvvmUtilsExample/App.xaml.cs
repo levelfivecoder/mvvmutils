@@ -28,13 +28,13 @@ namespace MvvmUtilsExample
 
         protected override void OnStart ()
 		{
+            Distribute.SetEnabledAsync(true);
             Distribute.ReleaseAvailable = OnReleaseAvailable;
             // Handle when your app starts
             AppCenter.Start("android=e34d7234-ca88-436d-b0f1-d2f9c69f2c52;" +
                   "uwp={Your UWP App secret here};" +
                   "ios={Your iOS App secret here}",
-                  typeof(Analytics), typeof(Crashes));
-            AppCenter.Start("ios={Your Xamarin iOS App Secret};android={e34d7234-ca88-436d-b0f1-d2f9c69f2c52}", typeof(Distribute));
+                  typeof(Analytics), typeof(Crashes), typeof(Distribute));
         }
         bool OnReleaseAvailable(ReleaseDetails releaseDetails)
         {
