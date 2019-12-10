@@ -1,7 +1,7 @@
 # mvvmutils
 A utility library from mvvm
 
-** Modified pipeline **
+Pipeline with pull request introduced
 
 open for contribution
 
