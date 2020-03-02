@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using MvvmUtils.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace MvvmUtilsExample.User_Interface_Layer
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ImageBrowserPage : ContentPage
+	public partial class ImageBrowserPage : BaseContentPage
 	{
-		public ImageBrowserPage ()
+		public ImageBrowserPage()
 		{
-			InitializeComponent ();
+			InitializeComponent();
 		}
 	}
 }

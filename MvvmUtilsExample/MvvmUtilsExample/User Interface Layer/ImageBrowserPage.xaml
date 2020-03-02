@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MvvmUtilsExample.User_Interface_Layer.ImageBrowserPage">
+<base:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MvvmUtilsExample.User_Interface_Layer.ImageBrowserPage"
+             xmlns:base="clr-namespace:MvvmUtils.Forms;assembly=MvvmUtils"
+             >
     <ContentPage.Content>
         <ListView x:Name="EventListView" ItemsSource="{Binding Images}" RowHeight="200">
             <ListView.ItemTemplate>
@@ -15,4 +17,4 @@
             </ListView.ItemTemplate>
         </ListView>
     </ContentPage.Content>
-</ContentPage>
+</base:BaseContentPage>
