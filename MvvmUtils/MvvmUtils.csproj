@@ -15,4 +15,7 @@
     <Folder Include="Forms\" />
     <Folder Include="Viewmodel\" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="EmptyClass.cs" />
+  </ItemGroup>
 </Project>

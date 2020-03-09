@@ -15,6 +15,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmUtilsExample.UWP", "Mvv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmUtilsExample", "MvvmUtilsExample\MvvmUtilsExample\MvvmUtilsExample.csproj", "{973291D0-9858-4D19-BE18-D5F51A9C10AD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1A567E76-95F7-48C5-B745-1F8EB686858F}"
+	ProjectSection(SolutionItems) = preProject
+		ci-pipeline.yaml = ci-pipeline.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
