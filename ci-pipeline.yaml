@@ -16,28 +16,33 @@ pr:
 - develop
 - feature/*
 
-# The type of machine this build should run on and what software should be on it
-pool:
-  vmImage: 'macOS-latest
-  demands: msbuild
+stages:
+- stage: Build
+  variables:
+    DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+
+  jobs:
+  - job: Build
+    pool:
+      vmImage: 'macOS-latest'
 
 # The different steps in our build
-steps:
-- task: NuGetToolInstaller@0
-  displayName: 'Use NuGet 4.9.3'
-  inputs:
-    versionSpec: 4.9.3
+    steps:
+      - task: NuGetToolInstaller@0
+        displayName: 'Use NuGet 4.9.3'
+        inputs:
+            versionSpec: 4.9.3
 
-- task: NuGetCommand@2
-  displayName: 'NuGet restore'
-  inputs:
-    command: 'restore'
-    restoreSolution: '**/*.sln'
-    feedsToUse: 'select'
+      - task: NuGetCommand@2
+        displayName: 'NuGet restore'
+        inputs:
+            command: 'restore'
+            restoreSolution: '**/*.sln'
+            feedsToUse: 'select'
 
-- task: MSBuild@1
-  displayName: 'Build solution'
-  inputs:
-    solution: '**/MvvmUtils.csproj'
-    msbuildArguments: '/t:restore;build /p:PackageOutputPath=$(build.artifactstagingdirectory)'
-    clean: true
+      - task: MSBuild@1
+        displayName: 'Build solution'
+        inputs:
+            solution: '**/MvvmUtils.csproj'
+            msbuildArguments: '/t:restore;build /p:PackageOutputPath=$(build.artifactstagingdirectory)'
+            clean: true
