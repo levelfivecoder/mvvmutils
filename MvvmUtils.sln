@@ -18,6 +18,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1A567E76-95F7-48C5-B745-1F8EB686858F}"
 	ProjectSection(SolutionItems) = preProject
 		ci-pipeline.yaml = ci-pipeline.yaml
+		ci-release.yaml = ci-release.yaml
 	EndProjectSection
 EndProject
 Global
