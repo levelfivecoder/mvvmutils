@@ -1,4 +1,5 @@
-﻿# Starter pipeline
+
+# Starter pipeline
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -15,7 +16,7 @@ pr:
 
 # The type of machine this build should run on and what software should be on it
 pool:
-  name: Hosted macOS-latest
+  vmImage: 'macOS-latest
   demands: msbuild
 
 # The different steps in our build
