@@ -8,11 +8,13 @@
 trigger:
 - master
 - develop
+- feature/*
 
 # Defines that PRs against this branch should also trigger this build
 pr:
 - master
 - develop
+- feature/*
 
 # The type of machine this build should run on and what software should be on it
 pool:
@@ -29,11 +31,13 @@ steps:
 - task: NuGetCommand@2
   displayName: 'NuGet restore'
   inputs:
-    restoreSolution: [git path to your sln] e.g. 'src/**/*.sln'
+    command: 'restore'
+    restoreSolution: '**/*.sln'
+    feedsToUse: 'select'
 
 - task: MSBuild@1
   displayName: 'Build solution'
   inputs:
-    solution: [git path to your csproj] e.g. src/[package]/[package].Shared.csproj
+    solution: '**/MvvmUtils.csproj'
     msbuildArguments: '/t:restore;build /p:PackageOutputPath=$(build.artifactstagingdirectory)'
     clean: true
