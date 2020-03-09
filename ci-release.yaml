@@ -1,5 +1,16 @@
 # set the version numbering, this results in 1.0.1 for the first build incrementing that way.
 name: 1.0$(rev:.r)
+# Defines that a commit to the master branch should trigger this build
+trigger:
+- master
+- develop
+- feature/*
+
+# Defines that PRs against this branch should also trigger this build
+pr:
+- master
+- develop
+- feature/*
 
 # the machine and prerequisites to run this build on
 stages:
