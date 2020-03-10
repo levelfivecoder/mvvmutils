@@ -44,11 +44,10 @@ namespace MvvmUtilsExample
         /// On Start
         /// </summary>
         protected override void OnStart()
-		    {
-            
+	{
             RegisterAppStart<LoginViewModel>();
         }
-	  }
+    }
 }
 
 ```
