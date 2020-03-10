@@ -9,6 +9,7 @@
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.0.0" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.0.0" />
     <PackageReference Include="Microsoft.AppCenter.Distribute" Version="3.0.0" />
+    <PackageReference Include="plugin.mvvmutils" Version="1.0.9" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,10 +29,6 @@
     <Folder Include="Repository Layer\" />
     <Folder Include="Service Access Layer\" />
     <Folder Include="Business Layer\Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\MvvmUtils\MvvmUtils.csproj" />
   </ItemGroup>
 
   <ItemGroup>

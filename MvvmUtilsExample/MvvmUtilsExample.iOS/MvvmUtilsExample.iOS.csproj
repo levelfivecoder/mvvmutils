@@ -126,17 +126,15 @@
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>3.0.0</Version>
     </PackageReference>
+    <PackageReference Include="plugin.mvvmutils">
+      <Version>1.0.9</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\MvvmUtilsExample\MvvmUtilsExample.csproj">
       <Project>{973291D0-9858-4D19-BE18-D5F51A9C10AD}</Project>
       <Name>MvvmUtilsExample</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\MvvmUtils\MvvmUtils.csproj">
-      <Project>{FE91AE99-5CC8-4BBC-A60D-89E23154A971}</Project>
-      <Name>MvvmUtils</Name>
-      <ReferenceSourceTarget>ProjectReference</ReferenceSourceTarget>
     </ProjectReference>
   </ItemGroup>
 </Project>
