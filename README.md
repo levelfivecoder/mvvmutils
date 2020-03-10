@@ -1,7 +1,6 @@
-# mvvmutils
-A utility library from mvvm
+# MvvmUtils #
 
-Pipeline with pull request introduced
+MvvmUtils provides a way to quickly integrate MVVM and viewmodel navigation.
 
-open for contribution
+
 
