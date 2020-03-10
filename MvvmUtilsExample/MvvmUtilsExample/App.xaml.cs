@@ -11,30 +11,31 @@ using Xamarin.Forms;
 using MvvmUtils.NavigationUtils;
 using Microsoft.AppCenter.Distribute;
 using System.Threading.Tasks;
+using MvvmUtils.Forms;
 
 namespace MvvmUtilsExample
 {
-	public partial class App : Application
-	{
-		public App ()
+	public partial class App : BaseApplication
+    {
+		public App()
 		{
 			InitializeComponent();
             BaseAppConstants.BaseUrl = "http://www.splashbase.co/api/v1/";
-            ViewModelToViewMapping.Map();
-            Page page = ViewFactory.CreatePage<LoginViewModel>();
-            MainPage = new NavigationPage(page);
-
         }
-
-        protected override void OnStart ()
+        /// <summary>
+        /// On Start
+        /// </summary>
+        protected override void OnStart()
 		{
-            Distribute.SetEnabledAsync(true);
             Distribute.ReleaseAvailable = OnReleaseAvailable;
             // Handle when your app starts
             AppCenter.Start("android=e34d7234-ca88-436d-b0f1-d2f9c69f2c52;" +
                   "uwp={Your UWP App secret here};" +
                   "ios={Your iOS App secret here}",
-                  typeof(Analytics), typeof(Crashes), typeof(Distribute));
+                  typeof(Analytics), typeof(Crashes));
+            AppCenter.Start("ios={Your Xamarin iOS App Secret};android={e34d7234-ca88-436d-b0f1-d2f9c69f2c52}", typeof(Distribute));
+
+            RegisterAppStart<LoginViewModel>();
         }
         bool OnReleaseAvailable(ReleaseDetails releaseDetails)
         {
@@ -76,14 +77,6 @@ namespace MvvmUtilsExample
             // Return true if you are using your own dialog, false otherwise
             return true;
         }
-        protected override void OnSleep ()
-		{
-			// Handle when your app sleeps
-		}
-
-		protected override void OnResume ()
-		{
-			// Handle when your app resumes
-		}
+       
 	}
 }

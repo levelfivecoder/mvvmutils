@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
 using MvvmUtils;
 using MvvmUtils.Models;
+using MvvmUtils.ViewModel;
 using MvvmUtilsExample.BusinessLayer.Models;
 
 namespace MvvmUtilsExample.Application_Layer
 {
-    public class ImageBrowserViewModel : BaseViewModel
+    public class ImageBrowserViewModel : ViewModelBase<int>
     {
         public ImageBrowserViewModel()
         {
 
-            getPhotoListAsync();
+            GetPhotoListAsync();
         }
         ObservableRangeCollection<Image> images = null;
 
@@ -23,7 +24,11 @@ namespace MvvmUtilsExample.Application_Layer
             get { return images; }
             set { SetProperty(ref images, value); }
         }
-        private async System.Threading.Tasks.Task getPhotoListAsync()
+        /// <summary>
+        /// Method to get images
+        /// </summary>
+        /// <returns></returns>
+        private async System.Threading.Tasks.Task GetPhotoListAsync()
         {
             IsBusy = true;
             RepositoryLayer.ImagesRepository repository = new RepositoryLayer.ImagesRepository();
@@ -43,6 +48,35 @@ namespace MvvmUtilsExample.Application_Layer
             }
             Images = new ObservableRangeCollection<Image>(Images);
             IsBusy = false;
+        }
+
+        public override void Initialize(int parameter)
+        {
+           
+        }
+        public override void ViewAppearing()
+        {
+            base.ViewAppearing();
+        }
+        public override void ViewAppeared()
+        {
+            base.ViewAppeared();
+        }
+        public override void ViewCreated()
+        {
+            base.ViewCreated();
+        }
+        public override void ViewDisappearing()
+        {
+            base.ViewDisappearing();
+        }
+        public override void ViewDisappeared()
+        {
+            base.ViewDisappeared();
+        }
+        public override void ViewDestroy(bool viewFinishing = true)
+        {
+            base.ViewDestroy(viewFinishing);
         }
     }
 }

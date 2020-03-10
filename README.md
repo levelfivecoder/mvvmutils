@@ -1,5 +1,6 @@
-# mvvmutils
-A utility library from mvvm
+# MvvmUtils #
+
+MvvmUtils provides a way to quickly integrate MVVM and viewmodel navigation.
 
 [![Build Status](https://dev.azure.com/levelfiveteam-xamarin/Mvvm%20Utils/_apis/build/status/ci-release-pipeline?branchName=master)](https://dev.azure.com/levelfiveteam-xamarin/Mvvm%20Utils/_build/latest?definitionId=7&branchName=master)
 [![NuGet](https://img.shields.io/nuget/v/plugin.mvvmutils)](https://www.nuget.org/packages/plugin.mvvmutils/)
@@ -69,6 +70,3 @@ This is how a typical `ViewModel` might look like:
 
 ```
 If any parameters are passed in the navigation, The type has to mention in the viewmodel definition. Please check the example project for more. Also the pages has to be inherited from the base pages in the MvvmUtils library.
-
-open for contribution
-

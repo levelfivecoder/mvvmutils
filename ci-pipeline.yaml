@@ -1,0 +1,48 @@
+
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+# Defines that a commit to the master branch should trigger this build
+trigger:
+- master
+- develop
+- feature/*
+
+# Defines that PRs against this branch should also trigger this build
+pr:
+- master
+- develop
+- feature/*
+
+stages:
+- stage: Build
+  variables:
+    DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+
+  jobs:
+  - job: Build
+    pool:
+      vmImage: 'macOS-latest'
+
+# The different steps in our build
+    steps:
+      - task: NuGetToolInstaller@0
+        displayName: 'Use NuGet 4.9.3'
+        inputs:
+            versionSpec: 4.9.3
+
+      - task: NuGetCommand@2
+        displayName: 'NuGet restore'
+        inputs:
+            command: 'restore'
+            restoreSolution: '**/*.sln'
+            feedsToUse: 'select'
+
+      - task: MSBuild@1
+        displayName: 'Build solution'
+        inputs:
+            solution: '**/MvvmUtils.csproj'
+            msbuildArguments: '/t:restore;build /p:PackageOutputPath=$(build.artifactstagingdirectory)'
+            clean: true

@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Linq;
+using MvvmUtils.ViewModel;
 
 namespace MvvmUtils.NavigationUtils
 {
@@ -28,7 +29,7 @@ namespace MvvmUtils.NavigationUtils
 
             implementor.Navigation.PushAsync(page);
         }
-       
+
         /// <summary>
         /// add a page with animation
         /// </summary>
@@ -37,7 +38,8 @@ namespace MvvmUtils.NavigationUtils
         public void Push(Page page, bool animate)
         {
             implementor.Navigation.PushAsync(page, animate);
-            implementor.Navigation.RemovePage(implementor.Navigation.NavigationStack.ElementAt(implementor.Navigation.NavigationStack.Count - 2));
+            implementor.Navigation.RemovePage(implementor.Navigation.NavigationStack.
+                ElementAt(implementor.Navigation.NavigationStack.Count - 2));
         }
 
         /// <summary>
@@ -45,9 +47,20 @@ namespace MvvmUtils.NavigationUtils
         /// </summary>
         /// <typeparam name="TViewModel">viewmodel</typeparam>
         public void Push<TViewModel>()
-            where TViewModel : BaseViewModel
+            where TViewModel : ViewModelBase
         {
             Push(ViewFactory.CreatePage<TViewModel>());
+        }
+        /// <summary>
+        /// Push viewmodel
+        /// </summary>
+        /// <typeparam name="TViewModel"></typeparam>
+        /// <typeparam name="TParameter"></typeparam>
+        /// <param name="parameter"></param>
+        public void Push<TViewModel,TParameter>(TParameter parameter)
+            where TViewModel : ViewModelBase
+        {
+            Push(ViewFactory.CreatePage<TViewModel, TParameter>(parameter));
         }
 
         /// <summary>
@@ -96,9 +109,19 @@ namespace MvvmUtils.NavigationUtils
         /// </summary>
         /// <typeparam name="TViewModel"></typeparam>
         public void PushModal<TViewModel>()
-            where TViewModel : BaseViewModel
+            where TViewModel : ViewModelBase
         {
             PushModal(ViewFactory.CreatePage<TViewModel>());
+        }
+
+        /// <summary>
+        /// Push modal viewmodel
+        /// </summary>
+        /// <typeparam name="TViewModel"></typeparam>
+        public void PushModal<TViewModel,TParameter>(TParameter parameter)
+            where TViewModel : ViewModelBase
+        {
+            PushModal(ViewFactory.CreatePage<TViewModel, TParameter>(parameter));
         }
 
         /// <summary>
@@ -113,7 +136,10 @@ namespace MvvmUtils.NavigationUtils
             implementor.Navigation.PopModalAsync();
 
         }
-
+        /// <summary>
+        /// Method to remove page from the stack
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
         public void RemovePage<T>()
         {
             var navigationStack = implementor.Navigation.NavigationStack.ToList();
@@ -125,14 +151,18 @@ namespace MvvmUtils.NavigationUtils
                 }
             }
         }
-
-        public BaseViewModel GetViewModel(int index)
+        /// <summary>
+        /// Method to get viewmodel from stack 
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public ViewModelBase GetViewModel(int index)
         {
             try
             {
                 if (implementor.Navigation.NavigationStack.Count() > index)
                 {
-                    return (BaseViewModel)this.implementor.Navigation.NavigationStack.ElementAt(index).BindingContext;
+                    return (ViewModelBase)this.implementor.Navigation.NavigationStack.ElementAt(index).BindingContext;
                 }
                 else
                 {
@@ -145,7 +175,10 @@ namespace MvvmUtils.NavigationUtils
             }
 
         }
-
+        /// <summary>
+        /// Method to get stack count
+        /// </summary>
+        /// <returns></returns>
         public int GetViewModelCount()
         {
             try

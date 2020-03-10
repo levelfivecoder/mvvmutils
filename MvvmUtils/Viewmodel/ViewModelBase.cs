@@ -1,15 +1,19 @@
 ﻿using MvvmUtils.NavigationUtils;
+using MvvmUtils.Viewmodel;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace MvvmUtils
+namespace MvvmUtils.ViewModel
 {
     /// <summary>
     /// Base view model.
     /// </summary>
-    public class BaseViewModel : ObservableObject
+    public abstract class ViewModelBase : ObservableObject, IViewModel
     {
+        #region Fields
+        
         public ViewModelNavigation Navigation { get; set; }
         string otherTitle = string.Empty;
 
@@ -127,5 +131,73 @@ namespace MvvmUtils
             get { return footer; }
             set { SetProperty(ref footer, value); }
         }
+
+        public virtual void Dispose()
+        {
+            
+        }
+        #endregion
+        #region Methods
+
+
+        public virtual void ViewCreated()
+        {
+        }
+
+        public virtual void ViewAppearing()
+        {
+        }
+
+        public virtual void ViewAppeared()
+        {
+        }
+
+        public virtual void ViewDisappearing()
+        {
+        }
+
+        public virtual void ViewDisappeared()
+        {
+        }
+
+        public virtual void ViewDestroy(bool viewFinishing = true)
+        {
+        }
+        public virtual void Initialize()
+        {
+
+        }
+        #endregion
     }
+    public abstract class ViewModelBase<TNavigationParameter> : ViewModelBase, IViewModel<TNavigationParameter>
+    {
+        /// <summary>
+        /// Initializes the View Model,
+        /// passing a parameter from the calling View Model
+        /// </summary>
+        /// <param name="parameter">The parameter passed by the calling View Model.</param>
+        public abstract void Initialize(TNavigationParameter parameter);
+    }
+    #region Commented
+    /*
+    //TODO: Not possible to name MvxViewModel, name is MvxViewModelResult for now
+    public abstract class ViewModelBase<TResult> : ViewModelBase, IMvxViewModelResult<TResult>
+    {
+        public TaskCompletionSource<object> CloseCompletionSource { get; set; }
+
+        public override void ViewDestroy(bool viewFinishing = true)
+        {
+            if (viewFinishing && CloseCompletionSource != null && !CloseCompletionSource.Task.IsCompleted && !CloseCompletionSource.Task.IsFaulted)
+                CloseCompletionSource?.TrySetCanceled();
+
+            base.ViewDestroy(viewFinishing);
+        }
+    }
+
+    public abstract class ViewModelBase<TParameter, TResult> : ViewModelBase<TResult>, IViewModel<TParameter, TResult>
+    {
+        public abstract void Prepare(TParameter parameter);
+    }
+    */
+    #endregion
 }

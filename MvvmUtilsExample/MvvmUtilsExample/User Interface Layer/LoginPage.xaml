@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<base:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:base="clr-namespace:MvvmUtils.Forms;assembly=MvvmUtils"
              x:Class="MvvmUtilsExample.User_Interface_Layer.LoginPage">
     <ContentPage.Content>
         <Grid>
-            <Label Text="FInal Release Build for MVVM Utils Sample App" VerticalOptions="Start" HorizontalOptions="Center" Margin="24" />
              <Button Text="Login"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" Command="{Binding LoginCommand}" />
         </Grid>
     </ContentPage.Content>
-</ContentPage>
+</base:BaseContentPage>
