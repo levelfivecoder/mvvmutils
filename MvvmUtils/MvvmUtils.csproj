@@ -3,6 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackOnBuild>true</PackOnBuild>
+    <PackageId>plugin.mvvmutils</PackageId>
+    <PackageVersion>1.0.3</PackageVersion>
+    <Authors>levelfivecoder</Authors>
+    <Description>library to implement mvvm in xamarin forms</Description>
   </PropertyGroup>
 
   <ItemGroup>
