@@ -7,6 +7,11 @@
     <PackageVersion>1.0.3</PackageVersion>
     <Authors>levelfivecoder</Authors>
     <Description>library to implement mvvm in xamarin forms</Description>
+    <PackageProjectUrl>https://github.com/levelfivecoder/mvvmutils/blob/master/README.md</PackageProjectUrl>
+    <PackageReleaseNotes>Mvvm library
+viewmodel navigation
+</PackageReleaseNotes>
+    <Title>MvvmUtils</Title>
   </PropertyGroup>
 
   <ItemGroup>
