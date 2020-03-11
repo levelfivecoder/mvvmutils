@@ -3,8 +3,8 @@
 MvvmUtils provides a way to quickly integrate MVVM and viewmodel navigation.
 
 [![Build Status](https://dev.azure.com/levelfiveteam-xamarin/Mvvm%20Utils/_apis/build/status/ci-release-pipeline?branchName=master)](https://dev.azure.com/levelfiveteam-xamarin/Mvvm%20Utils/_build/latest?definitionId=7&branchName=master)
-[![NuGet](https://img.shields.io/nuget/v/plugin.mvvmutils)](https://www.nuget.org/packages/plugin.mvvmutils/)
-[![NuGet Pre Release](https://img.shields.io/nuget/vpre/plugin.mvvmutils)](https://www.nuget.org/packages/plugin.mvvmutils/)
+[![NuGet](https://img.shields.io/nuget/v/Xamarin.Forms.MvvmUtils)](https://www.nuget.org/packages/Xamarin.Forms.MvvmUtils/)
+[![NuGet Pre Release](https://img.shields.io/nuget/vpre/Xamarin.Forms.MvvmUtils)](https://www.nuget.org/packages/Xamarin.Forms.MvvmUtils/)
 
 Mvvmutils is a mvvm framework. It enables developers to create apps using the MVVM pattern on *Xamarin.Forms*. This allows for better code sharing by allowing you to share behavior and business logic between platforms.
 
@@ -16,9 +16,9 @@ Among the features Mvvmutils provides are:
 - Eg: Viewmodel for *HomePage* should be *HomeViewModel*. The library will pick the curresponding Page on navigation based on the convention.
 - ViewModel to ViewModel navigation
 
-Grab the latest [MvvmUtils NuGet](https://www.nuget.org/packages/plugin.mvvmutils/) package and install in your solution.
+Grab the latest [MvvmUtils NuGet](https://www.nuget.org/packages/Xamarin.Forms.MvvmUtils/) package and install in your solution.
 
-> Install-Package plugin.mvvmutils
+> Install-Package Xamarin.Forms.MvvmUtils
 
 Make sure that both the shared core project and your application projects include the NuGet. 
 
@@ -38,7 +38,7 @@ namespace MvvmUtilsExample
     {
         public App()
         {
-			      InitializeComponent();
+	    InitializeComponent();
         }
         /// <summary>
         /// On Start
