@@ -9,7 +9,7 @@
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.0.0" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.0.0" />
     <PackageReference Include="Microsoft.AppCenter.Distribute" Version="3.0.0" />
-    <PackageReference Include="plugin.mvvmutils" Version="1.0.9" />
+    <PackageReference Include="Xamarin.Forms.MvvmUtils" Version="1.0.16" />
   </ItemGroup>
 
   <ItemGroup>
