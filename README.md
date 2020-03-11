@@ -68,4 +68,52 @@ This is how a typical `ViewModel` might look like:
     }
 
 ```
-If any parameters are passed in the navigation, The type has to mention in the viewmodel definition. Please check the example project for more. Also the pages has to be inherited from the base pages in the MvvmUtils library.
+If any parameters are passed in the navigation, The type has to mention in the viewmodel definition. 
+
+Viewmodel with navigation Parameter sample
+
+```C#
+    public class ImageBrowserViewModel : ViewModelBase<int>
+    {
+        public ImageBrowserViewModel()
+        {
+        }
+	public override void Initialize(int parameter)
+        {
+           
+        }
+    }
+```
+
+Initiate Viewmodel navigation with parameter
+```C#
+    Navigation.Push<ImageBrowserViewModel, int>(3);
+```
+
+Viewmodel lifecycle events
+
+*ViewCreated*
+
+		Invoked on view created
+		
+*ViewAppearing*
+
+		Invoked on view starting to appear
+		
+*ViewAppeared*
+
+		Invoked on view appeared
+		
+*ViewDisappearing*
+
+		Invoked on view starting to disapear
+		
+*ViewDisappeared*
+
+		Invoked on view disappeared
+		
+*ViewDestroy*
+
+		Invoked on view destroyed
+
+Please check the example project for more. Also the pages has to be inherited from the base pages in the MvvmUtils library.
